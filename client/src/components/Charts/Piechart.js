@@ -14,7 +14,7 @@ const Piechart = ({fetcheddata}) => {
     })  
       arrdata.push({
         "key" : d.key_as_string,
-        "count" : counttype
+        "count" : counttype      
       })
     })
     setData(counttype);

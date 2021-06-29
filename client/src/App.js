@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import Navbar from './components/layout/Navbar';
 import Piechart from './components/Charts/Piechart';
+import NestedPieChart from './components/Charts/NestedPieChart';
 import './App.css';
 import axios from 'axios';
 
@@ -25,6 +26,7 @@ return (
     <Fragment>
       < Navbar />
       < Piechart fetcheddata={data} />
+      < NestedPieChart fetcheddata={data} />
     </Fragment>
 )};
 
