@@ -1,13 +1,11 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import * as d3 from 'd3';
 import Navbar from './components/layout/Navbar';
-import Bargraph from './components/Charts/Bargraph';
 import Piechart from './components/Charts/Piechart';
 import './App.css';
 import axios from 'axios';
 
 function App () {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     getDataFromApi();
@@ -26,9 +24,7 @@ function App () {
 return (
     <Fragment>
       < Navbar />
-      <svg width="500" height="500">
-      < Piechart fetcheddata={data} x={250} y={250}/>
-      </svg>
+      < Piechart fetcheddata={data} />
     </Fragment>
 )};
 
