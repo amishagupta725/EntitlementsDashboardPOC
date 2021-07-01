@@ -33,18 +33,18 @@ const NestedPieChart = ({fetcheddata}) => {
     setData(counttype);
  },[fetcheddata])
  
-// const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-// const CustomTooltip = ({ active, payload, label }) => {
-//   if (active && payload && payload.length) {
-//     return (
-//       <div className="custom-tooltip">
-//         <p className="label">{`${payload[0].value}`}</p>
-//       </div>
-//     );
-//   }
-//   return null;
-// };
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${payload[0].value}`}</p>
+      </div>
+    );
+  }
+  return null;
+};
 
  return (
       <ResponsiveContainer width={600} height={400}>
@@ -56,9 +56,20 @@ const NestedPieChart = ({fetcheddata}) => {
         cy={200}
         outerRadius={50}
         fill="#8884d8"
-        label
+      >
+      </Pie>
+      <Legend layout="vertical" wrapperStyle={{top: 80, left: 425}}
+        payload={
+          yearcount.map(
+            (item, index) => ({
+              value: `${item.year.slice(0, 4)} (${item.total_count})`,
+              type: "square",
+              id: item.year,
+              color: "#8884d8"
+            })
+          )
+        }
       />
-      <Tooltip />
       <Pie
         data={counttype}
         dataKey="total"
@@ -67,8 +78,39 @@ const NestedPieChart = ({fetcheddata}) => {
         innerRadius={70}
         outerRadius={90}
         fill="#82ca9d"
-        label
-      />
+        label={({
+          cx,
+          cy,
+          midAngle,
+          innerRadius,
+          outerRadius,
+          total,
+          index
+        }) => {
+          console.log("handling label?");
+          const RADIAN = Math.PI / 180;
+          const radius = 25 + innerRadius + (outerRadius - innerRadius);
+          const x = cx + radius * Math.cos(-midAngle * RADIAN);
+          const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+          if (counttype[index].total>3) return ( 
+            <text
+              x={x}
+              y={y}
+              fill="#FF8042"
+              textAnchor={x > cx ? "start" : "end"}
+              dominantBaseline="central"
+            >
+              {counttype[index].type}
+            </text>
+          );
+        }}
+      >
+        {counttype.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        ))}
+        </Pie>
+        <Tooltip content={<CustomTooltip />} />
     </PieChart>
       </ResponsiveContainer>   
     )

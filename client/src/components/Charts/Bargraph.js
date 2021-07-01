@@ -1,62 +1,50 @@
-// import * as d3 from 'd3';
-// import React, { useRef, useEffect } from 'react';
+import React, {useState, useEffect} from 'react'
+import {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer } from "recharts";
+  
 
-// const Bargraph = ({width, height, fetcheddata}) => {
-//     const ref = useRef();
+const Bargraph = ({fetcheddata}) => {
+    const [data, setData] = useState([]); 
+    useEffect(()=>{
+        const arraydata = [];
+        if(fetcheddata.length) fetcheddata.forEach((d)=>{
+            d.group_by_month.buckets.forEach((month)=>{
+                const temp = month.group_by_Type.buckets;
+                const data = {};
+                temp.forEach((type)=>{
+                    data[type.key] = type.total_count.value;
+                })
+                arraydata.push({"name": month.key_as_string.slice(5,7),"Casper": data['Casper'], "Cirrus": data['Cirrus'], "VIS": data['VIS'], "Gemini": data['Gemini']})
+            })
+        })
+        setData(arraydata);
+    },[fetcheddata])
+    console.log(data);
 
-//     useEffect(() => {
-//         const svg = d3.select(ref.current)
-//             .attr("width", width)
-//             .attr("height", height)
-//             .style("border", "1px solid black")
-//     }, []);
+    return (
+        <ResponsiveContainer width={600} height={500}>
+        <BarChart
+        width={400}
+        height={300}
+        data={data}
+        margin={{
+          top: 50,
+          right: 30,
+          left: 100,
+          bottom: 5
+        }}
+      >
+        <CartesianGrid strokeDasharray="5 5" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend layout="vertical" wrapperStyle={{top: 80, left: 620}}/>
+        <Bar dataKey="Casper" stackId="a" fill="#0088FE" />
+        <Bar dataKey="Cirrus" stackId="a" fill="#00C49F" />
+        <Bar dataKey="Gemini" stackId="a" fill="#FFBB28" />
+        <Bar dataKey="VIS" stackId="a" fill="#FF8042" />
+      </BarChart>
+      </ResponsiveContainer>
+    )
+}
 
-//     useEffect(() => {
-//         draw();
-//     }, [fetcheddata.aggregations]);
-
-//     const draw = () => {
-        
-//         const svg = d3.select(ref.current);
-//         var selection = svg.selectAll("rect").data(fetcheddata.aggregations);
-//         var yScale = d3.scaleLinear()
-//                             .domain([0, d3.max(fetcheddata.aggregations)])
-//                             .range([0, height-100]);
-        
-//         selection
-//             .transition().duration(300)
-//                 .attr("height", (d) => yScale(d))
-//                 .attr("y", (d) => height - yScale(d))
-
-//         selection
-//             .enter()
-//             .append("rect")
-//             .attr("x", (d, i) => i * 45)
-//             .attr("y", (d) => height)
-//             .attr("width", 40)
-//             .attr("height", 0)
-//             .attr("fill", "orange")
-//             .transition().duration(300)
-//                 .attr("height", (d) => yScale(d))
-//                 .attr("y", (d) => height - yScale(d))
-        
-//         selection
-//             .exit()
-//             .transition().duration(300)
-//                 .attr("y", (d) => height)
-//                 .attr("height", 0)
-//             .remove()
-//     }
-
-
-//     return (
-//         <div className="chart">
-//             <svg ref={ref}>
-//             </svg>
-//         </div>
-        
-//     )
-
-// }
-
-// export default Bargraph;
+export default Bargraph;
