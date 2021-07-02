@@ -38,10 +38,10 @@ const Bargraph = ({fetcheddata}) => {
         <YAxis />
         <Tooltip />
         <Legend layout="vertical" wrapperStyle={{top: 80, left: 620}}/>
-        <Bar dataKey="Casper" stackId="a" fill="#0088FE" />
-        <Bar dataKey="Cirrus" stackId="a" fill="#00C49F" />
-        <Bar dataKey="Gemini" stackId="a" fill="#FFBB28" />
-        <Bar dataKey="VIS" stackId="a" fill="#FF8042" />
+        <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
+        <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
+        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" />
+        <Bar dataKey="VIS" stackId="d" fill="#FF8042" />
       </BarChart>
       </ResponsiveContainer>
     )
