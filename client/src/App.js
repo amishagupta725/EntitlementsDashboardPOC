@@ -37,15 +37,16 @@ function App () {
     }
   }
 
-return (
-    <Fragment>
-      < Navbar />
-      <container style={{display:"flex",flexWrap:"wrap"}}>
-      < Piechart fetcheddata={data} />
-      < NestedPieChart fetcheddata={data} />
-      </container>
-      < Bargraph fetcheddata={bargraphdata} />
-    </Fragment>
-)};
+  return (
+      <Fragment>
+        < Navbar />
+        <container style={{display:"flex",flexWrap:"wrap"}}>
+        < Piechart fetcheddata={data} />
+        < NestedPieChart fetcheddata={data} />
+        </container>
+        < Bargraph fetcheddata={bargraphdata} />
+      </Fragment>
+  )
+};
 
 export default App;
