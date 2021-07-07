@@ -48,7 +48,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
  return (
       <ResponsiveContainer width={600} height={400}>
-      <PieChart width={400} height={400}>
+      <PieChart width={400} height={400} margin={{bottom: 50}}>
       <Pie
         data={yearcount}
         dataKey="total_count"
@@ -58,7 +58,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         fill="#8884d8"
       >
       </Pie>
-      <Legend layout="vertical" wrapperStyle={{top: 80, left: 425}}
+      <Legend layout="vertical" wrapperStyle={{top: 40, left: 350}}
         payload={
           yearcount.map(
             (item, index) => ({

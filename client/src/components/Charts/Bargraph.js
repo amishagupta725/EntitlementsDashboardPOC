@@ -13,7 +13,7 @@ const Bargraph = ({fetcheddata}) => {
                 temp.forEach((type)=>{
                     data[type.key] = type.total_count.value;
                 })
-                arraydata.push({"name": month.key_as_string.slice(5,7),"Casper": data['Casper'], "Cirrus": data['Cirrus'], "VIS": data['VIS'], "Gemini": data['Gemini']})
+                arraydata.push({"name": month.key_as_string.slice(0,7),"Casper": data['Casper'], "Cirrus": data['Cirrus'], "VIS": data['VIS'], "Gemini": data['Gemini']})
             })
         })
         setData(arraydata);
@@ -28,8 +28,8 @@ const Bargraph = ({fetcheddata}) => {
         data={data}
         margin={{
           top: 50,
-          right: 30,
-          left: 100,
+          right: 80,
+          left: 30,
           bottom: 5
         }}
       >
@@ -37,7 +37,7 @@ const Bargraph = ({fetcheddata}) => {
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Legend layout="vertical" wrapperStyle={{top: 80, left: 620}}/>
+        <Legend layout="vertical" wrapperStyle={{top: 80, left: 540}}/>
         <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
         <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
         <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" />
