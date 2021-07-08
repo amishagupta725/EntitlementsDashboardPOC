@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import NestedPieChart from './components/Charts/NestedPieChart';
 import Bargraph from './components/Charts/Bargraph'
 import Table from './components/Tables/Table';
+import MonthPieChart from './components/Charts/MonthPieChart';
 import './App.css';
 import axios from 'axios';
 
@@ -63,12 +64,13 @@ function App () {
       <Fragment>
         < Navbar />
         <container style={{display:"flex",flexWrap:"wrap",marginTop:"100px",justifyContent:"space-evenly"}}>
-        <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"550px",marginLeft:"20px"}}>
-        <h5 style={{textAlign:"Center", marginTop:"20px"}}>Yearwise Category-wise Count</h5>
-        < NestedPieChart fetcheddata={data} />
+        <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
+        <h5 style={{textAlign:"Center", marginTop:"20px"}}>Monthly Count</h5>
+        {/* < NestedPieChart fetcheddata={data} /> */}
+        <MonthPieChart fetcheddata={bargraphdata} yeardata={data}/>
         </div>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
-        <h5 style={{textAlign:"Center",marginTop:"20px"}}>Yearwise Month-wise Category-wise Count</h5>
+        <h5 style={{textAlign:"Center",marginTop:"20px"}}>Monthly Count by Type</h5>
         < Bargraph fetcheddata={bargraphdata} />
         </div>
         </container>
