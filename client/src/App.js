@@ -57,6 +57,9 @@ function App () {
   return (
     <Router>
       <Switch>
+      <Route path="/year">
+        <h3>Yearly reports</h3>
+      </Route>
       <Route path = '/table'>
         <Table fetcheddata={fetcheddata} />
       </Route>
