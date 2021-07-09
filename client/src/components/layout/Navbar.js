@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
     <container style={{padding:"0px 2px"}}>
     <nav className="navbar fixed-top navbar-dark bg-dark">
-        <a style={{marginLeft:'500px'}} className="navbar-brand">{" "}<i className="fas fa-code"/> Entitlements Dashboard</a>
+        <a style={{marginLeft:'500px'}} className="navbar-brand">Entitlements Dashboard</a>
         <container style={{display:'flex', justifyContent:'space-around'}}>
         <div style={{paddingLeft:"5px",paddingRight:"3px"}}>
             <Link to="/" style={{textDecoration:'none', color:'white'}}>Month</Link>
