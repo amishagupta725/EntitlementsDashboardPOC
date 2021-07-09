@@ -73,7 +73,7 @@ const YearPieChart = ({fetcheddata}) => {
         ))}
       </Pie>
       <Tooltip content={<CustomTooltip />} />
-      <Legend layout="vertical" wrapperStyle={{top: 40, left: 425}}
+      <Legend layout="vertical" wrapperStyle={{top: 40, left: 405}}
         payload={
           yearcountarr.map(
             (item, index) => ({
