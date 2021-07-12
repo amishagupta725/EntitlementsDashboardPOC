@@ -3,12 +3,13 @@ import { useHistory } from 'react-router-dom'
 import {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer } from "recharts";
   
 
-const Bargraph = ({fetcheddata}) => {
+const Bargraph = ({fetcheddata,year}) => {
     const history = useHistory();
     const [data, setData] = useState([]); 
     useEffect(()=>{
         const arraydata = [];
         if(fetcheddata.length) fetcheddata.forEach((d)=>{
+          if(d.key_as_string.slice(0,4)==year){
             d.group_by_month.buckets.forEach((month)=>{
                 const temp = month.group_by_Type.buckets;
                 const data = {};
@@ -16,7 +17,7 @@ const Bargraph = ({fetcheddata}) => {
                     data[type.key] = type.total_count.value;
                 })
                 arraydata.push({"name": month.key_as_string.slice(0,7),"Casper": data['Casper'], "Cirrus": data['Cirrus'], "VIS": data['VIS'], "Gemini": data['Gemini']})
-            })
+            })}
         })
         setData(arraydata);
     },[fetcheddata])

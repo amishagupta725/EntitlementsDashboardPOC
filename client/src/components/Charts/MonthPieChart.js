@@ -1,13 +1,14 @@
 import React , {useState, useEffect} from 'react'
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer,Cell } from 'recharts';
 
-const MonthPieChart = ({fetcheddata,yeardata}) => {
+const MonthPieChart = ({fetcheddata,yeardata,year}) => {
     const [yearcount, setYearCount] = useState([]);
     const [countmonth, setMonthCount] = useState([]); 
 
     useEffect(()=>{
     const yearcounts = [];
     if(yeardata.length) yeardata.forEach((d)=>{
+        if(d.key_as_string.slice(0,4)==year){
         let temp = 0;
         d.group_by_Type.buckets.forEach((bucket)=>{
         temp+=bucket.total_count.value
@@ -15,7 +16,7 @@ const MonthPieChart = ({fetcheddata,yeardata}) => {
         yearcounts.push({
         "year":d.key_as_string,
         "total_count": temp
-    })
+        })}
     })
     setYearCount(yearcounts);
     console.log(yearcounts);
@@ -24,13 +25,14 @@ const MonthPieChart = ({fetcheddata,yeardata}) => {
     useEffect(()=>{
         const monthcount = [];
         if(fetcheddata.length) fetcheddata.forEach((d)=>{
+          if(d.key_as_string.slice(0,4)==year){
             d.group_by_month.buckets.forEach((bucket)=>{
                 let temp = 0;
                 bucket.group_by_Type.buckets.forEach((type)=>{
                     temp+= type.total_count.value;
                 })
                 monthcount.push({'total':temp,'Month':bucket.key_as_string.slice(0,7)})
-            })
+            })}
         })
         setMonthCount(monthcount);
         console.log(monthcount);
