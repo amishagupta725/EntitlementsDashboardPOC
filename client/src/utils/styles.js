@@ -29,7 +29,9 @@ export const StyledButton = styled.input`
   height: 60%;
   display: flex;
   justify-content: center;
-  // border: solid 2px blue;
+  color: #035e7b;
+  border: solid 2px #035e7b;
+  background-color: white;
   padding: 0.35rem;
   border-radius: 0.25rem;
 `;
