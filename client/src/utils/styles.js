@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const DropdownWrapper = styled.form`
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   justify-content: flex-start;
 `;
 
 export const StyledSelect = styled.select`
-  max-width: 50%;
+  margin-top: 40px;
+  max-width: 10%;
   height: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -22,11 +23,13 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledButton = styled.input`
-  max-width: 50%;
-  height: 100%;
+  margin-top: 40px;
+  margin-left: 10px;
+  max-width: 10%;
+  height: 60%;
   display: flex;
   justify-content: center;
-  border: solid 2px blue;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  // border: solid 2px blue;
+  padding: 0.35rem;
+  border-radius: 0.25rem;
 `;

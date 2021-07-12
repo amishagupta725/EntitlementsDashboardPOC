@@ -88,15 +88,15 @@ function App () {
       <Fragment>
         < Navbar />
         <Dropdown
-        formLabel="Choose the year"
+        formLabel="Year"
         buttonText="Submit"
         action="/"
-      >
-        <Option selected value="Click to see options" />
+        >
+        <Option selected value="Year" />
         <Option value="2020" />
         <Option value="2021" />
       </Dropdown>
-        <container style={{display:"flex",flexWrap:"wrap",marginTop:"100px",justifyContent:"space-evenly"}}>
+        <container style={{display:"flex",flexWrap:"wrap",marginTop:"10px",justifyContent:"space-evenly"}}>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
         <h5 style={{textAlign:"Center", marginTop:"20px"}}>Monthly Count</h5>
         {/* < NestedPieChart fetcheddata={data} /> */}
