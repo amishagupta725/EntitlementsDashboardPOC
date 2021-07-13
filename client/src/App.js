@@ -100,11 +100,11 @@ function App () {
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
         <h5 style={{textAlign:"Center", marginTop:"20px"}}>Monthly Count</h5>
         {/* < NestedPieChart fetcheddata={data} /> */}
-        <MonthPieChart fetcheddata={bargraphdata} yeardata={data} year={year}/>
+        <MonthPieChart fetcheddata={bargraphdata} yeardata={data} year={year?year:2021}/>
         </div>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
         <h5 style={{textAlign:"Center",marginTop:"20px"}}>Monthly Count by Type</h5>
-        < Bargraph fetcheddata={bargraphdata} year={year}/>
+        < Bargraph fetcheddata={bargraphdata} year={year?year:2021}/>
         </div>
         </container>
       </Fragment>
