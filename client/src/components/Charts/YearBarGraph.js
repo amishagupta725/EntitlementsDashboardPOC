@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react'
 import {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer } from "recharts";
 
-const YearBarGraph = ({fetcheddata}) => {
+const YearBarGraph = ({fetcheddata,year}) => {
     const [data, setData] = useState([]); 
     useEffect(()=>{
         const arraydata = [];
@@ -10,6 +10,7 @@ const YearBarGraph = ({fetcheddata}) => {
         let Gemini = 0;
         let VIS = 0;
         if(fetcheddata.length) fetcheddata.forEach((d)=>{
+          if(d.key_as_string.slice(0,4)==year){
             d.group_by_month.buckets.forEach((month)=>{
                 month.group_by_Type.buckets.forEach((type)=>{
                     if(type.key=="Casper") Casper+= type.total_count.value;
@@ -19,7 +20,7 @@ const YearBarGraph = ({fetcheddata}) => {
                 })
             })
             arraydata.push({"name": d.key_as_string.slice(0,4),"Casper": Casper, "Cirrus": Cirrus, "VIS": VIS, "Gemini": Gemini})
-        })
+        }})
         setData(arraydata);
     },[fetcheddata])
     console.log(data);

@@ -72,11 +72,11 @@ function App () {
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
         <h5 style={{textAlign:"Center", marginTop:"20px"}}>Yearly Count</h5>
         {/* < NestedPieChart fetcheddata={data} /> */}
-        <YearPieChart fetcheddata={data} />
+        <YearPieChart fetcheddata={data} year={year?year:2021} />
         </div>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
         <h5 style={{textAlign:"Center",marginTop:"20px"}}>Yearly Count by Type</h5>
-        <YearBarGraph fetcheddata={bargraphdata}/>
+        <YearBarGraph fetcheddata={bargraphdata} year={year?year:2021}/>
         </div>
         </container>
       </Fragment>
