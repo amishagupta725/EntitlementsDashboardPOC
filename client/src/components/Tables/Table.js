@@ -31,7 +31,7 @@ const Table = ({fetcheddata}) => {
 
    
     return (
-        <div  className="ag-theme-alpine" style={{height: 700, width: 1000, marginLeft: "130px"}}>
+        <div  className="ag-theme-alpine" style={{height: 700, width: 1000, marginLeft: "130px", marginTop:"50px"}}>
            <AgGridReact
                rowData={arrdata}>
                <AgGridColumn field="Day"></AgGridColumn>
