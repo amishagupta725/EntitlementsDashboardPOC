@@ -7,7 +7,7 @@ export const DropdownWrapper = styled.form`
 `;
 
 export const StyledSelect = styled.select`
-  margin-top: 40px;
+  margin-top: 80px;
   max-width: 10%;
   height: 100%;
   padding: 0.5rem;
@@ -23,7 +23,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledButton = styled.input`
-  margin-top: 40px;
+  margin-top: 80px;
   margin-left: 10px;
   max-width: 10%;
   height: 60%;

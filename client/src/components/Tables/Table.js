@@ -13,7 +13,9 @@ const Table = ({fetcheddata}) => {
     }, [])
 
     const arrdata = [];
-    if(fetcheddata.length) fetcheddata[0].group_by_month.buckets.forEach((bucket)=>{
+    if(fetcheddata.length) fetcheddata.forEach((d)=>{
+        if(d.key_as_string.slice(0,4)==year){
+        d.group_by_month.buckets.forEach((bucket)=>{
         if(bucket.key_as_string.slice(5,7)==month){
         bucket.group_by_day.buckets.forEach((day)=>{
         const temp = day.group_by_Type.buckets;
@@ -25,7 +27,7 @@ const Table = ({fetcheddata}) => {
     })
     console.log(arrdata);
     }
-    })
+    })}})
 
    
     return (

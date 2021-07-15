@@ -82,6 +82,7 @@ function App () {
       </Fragment>
       </Route>
       <Route path = '/table'>
+      <Navbar />
         <Table fetcheddata={fetcheddata} />
       </Route>
       <Route path="/">
