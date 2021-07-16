@@ -63,12 +63,6 @@ function App () {
       setYear(window.location.href.slice(28,32));
   }, [])
 
-  // const [year, setOptionValue] = useState("");
-  // const handleSelect = (e) => {
-  //   console.log(e.target.value);
-  //   setOptionValue(e.target.value);
-  // };
-
   return (
     <Router>
       <Switch>
