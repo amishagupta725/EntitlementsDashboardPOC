@@ -7,6 +7,7 @@ import Table from './components/Tables/Table';
 import MonthPieChart from './components/Charts/MonthPieChart';
 import YearPieChart from './components/Charts/YearPieChart';
 import YearBarGraph from './components/Charts/YearBarGraph';
+import Yearlytable from './components/Tables/Yearlytable';
 import { Dropdown, Option } from "./components/Dropdown";
 import './App.css';
 import axios from 'axios';
@@ -90,6 +91,10 @@ function App () {
       <Route path = '/table'>
       <Navbar />
         <Table fetcheddata={fetcheddata} />
+      </Route>
+      <Route path= '/yeartable'>
+        <Navbar />
+        <Yearlytable fetcheddata={fetcheddata} />
       </Route>
       <Route path="/">
       <Fragment>

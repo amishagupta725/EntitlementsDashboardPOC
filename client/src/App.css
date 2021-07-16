@@ -2,3 +2,17 @@
   display: flex;
   justify-content: center;
 }
+
+.navlinks:hover {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+}
+
+.navlinks .Link:hover {
+  color: black;
+}
+
+.navtext:hover {
+  color: black;
+}

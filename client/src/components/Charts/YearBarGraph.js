@@ -1,7 +1,9 @@
 import React , {useEffect, useState} from 'react'
+import { useHistory } from 'react-router-dom'
 import {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer } from "recharts";
 
 const YearBarGraph = ({fetcheddata,year}) => {
+  const history = useHistory();
     const [data, setData] = useState([]); 
     useEffect(()=>{
         const arraydata = [];
@@ -44,7 +46,7 @@ const YearBarGraph = ({fetcheddata,year}) => {
         <Legend layout="vertical" wrapperStyle={{top: 80, left: 460}}/>
         <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
         <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
-        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" />
+        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return history.push(`/yeartable/${data.name}`)}} />
         <Bar dataKey="VIS" stackId="d" fill="#FF8042" />
       </BarChart>
       </ResponsiveContainer>

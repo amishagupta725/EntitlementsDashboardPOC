@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import {AgGridColumn, AgGridReact} from 'ag-grid-react';
+import { AllModules } from '@ag-grid-enterprise/all-modules';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 
 const Table = ({fetcheddata}) => {
+    const [gridApi, setGridApi] = useState(null);
+    const [gridColumnApi, setGridColumnApi] = useState(null);
+    const [rowData, setRowData] = useState(null);
+
     const [year, setYear] = useState(); 
     const [month, setMonth] = useState(); 
     useEffect(() => {
@@ -29,10 +34,35 @@ const Table = ({fetcheddata}) => {
     }
     })}})
 
+    const onGridReady = (params) => {
+        setGridApi(params.api);
+        setGridColumnApi(params.columnApi);
+    
+        const updateData = (arrdata) => {
+          setRowData(arrdata);
+        };
+    
+            updateData(arrdata);
+      };
+    
+      const onBtExport = () => {
+        gridApi.exportDataAsExcel();
+      };
+    
    
     return (
-        <div  className="ag-theme-alpine" style={{height: 700, width: 1000, marginLeft: "130px", marginTop:"50px"}}>
+        <container style={{display:"flex"}}>
+        <div  className="ag-theme-alpine" style={{marginRight:"15px",height: 700, width: 1000, marginLeft: "130px", marginTop:"70px"}}>
            <AgGridReact
+            modules={AllModules}
+            defaultColDef={{
+                sortable: true,
+                filter: true,
+                resizable: true,
+                minWidth: 100,
+                flex: 1,
+            }}
+            onGridReady={onGridReady}
                rowData={arrdata}>
                <AgGridColumn field="Day"></AgGridColumn>
                <AgGridColumn field="Casper"></AgGridColumn>
@@ -41,6 +71,10 @@ const Table = ({fetcheddata}) => {
                <AgGridColumn field="Gemini"></AgGridColumn>
            </AgGridReact>
        </div>
+       <div className="btn btn-dark" style={{height:"40px", marginTop:"70px"}}>
+                <i className="fas fa-download" onClick={() => onBtExport()}/>
+        </div>
+       </container>
     )
 }
 

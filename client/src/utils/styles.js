@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const DropdownWrapper = styled.form`
   display: flex;
   flex-flow: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
 `;
 
 export const StyledSelect = styled.select`
-  margin-top: 80px;
+  margin-top: 60px;
   max-width: 10%;
   height: 100%;
   padding: 0.5rem;
@@ -23,8 +23,9 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledButton = styled.input`
-  margin-top: 80px;
+  margin-top: 60px;
   margin-left: 10px;
+  margin-right: 30px;
   max-width: 10%;
   height: 60%;
   display: flex;
