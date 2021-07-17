@@ -30,10 +30,10 @@ const Bargraph = ({fetcheddata,year}) => {
         height={300}
         data={data}
         margin={{
-          top: 50,
+          top: 30,
           right: 80,
           left: 30,
-          bottom: 5
+          bottom: 10
         }}
       >
         <CartesianGrid strokeDasharray="5 5" />
