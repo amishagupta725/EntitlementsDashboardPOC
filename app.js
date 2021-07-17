@@ -6,7 +6,7 @@ var client = require('./connection.js');
 
 app.get('/api/fetchdata',(req,res)=>{
     client.search({  
-        index: 'factsentindex',
+        index: 'entitlementfactsindex',
         body: {
             "size": 0,
             "aggs":{
@@ -54,7 +54,7 @@ app.get('/api/fetchdata',(req,res)=>{
 
 app.get('/api/fetchdataperyear',(req,res)=>{
   client.search({  
-      index: 'factsentindex',
+      index: 'entitlementfactsindex',
       body: {  "size": 0,
       "aggs":{
         "group_by_year":{
@@ -93,7 +93,7 @@ app.get('/api/fetchdataperyear',(req,res)=>{
 
 app.get('/api/fetchdataperyearpermonth',(req,res)=>{
   client.search({  
-      index: 'factsentindex',
+      index: 'entitlementfactsindex',
       body: {  
         "size": 0,
  "aggs":{

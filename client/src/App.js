@@ -99,6 +99,9 @@ function App () {
         action="/"
         >
         <Option selected value="Year" />
+        <Option value="2017" />
+        <Option value="2018" />
+        <Option value="2019" />
         <Option value="2020" />
         <Option value="2021" />
       </Dropdown>

@@ -19,7 +19,7 @@ const YearPieChart = ({fetcheddata}) => {
      console.log(yearcount);
     },[fetcheddata])
 
-    const COLORS = ["#FF8042"];
+    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884d8"];
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
           return (

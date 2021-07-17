@@ -40,7 +40,7 @@ const Bargraph = ({fetcheddata,year}) => {
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Legend layout="vertical" wrapperStyle={{top: 80, left: 540}}/>
+        <Legend layout="vertical" wrapperStyle={{top: 80, left: 530}}/>
         <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
         <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
         <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return history.push(`/table/${data.name}`)}}/>

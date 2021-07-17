@@ -38,7 +38,8 @@ const MonthPieChart = ({fetcheddata,yeardata,year}) => {
         console.log(monthcount);
     },[fetcheddata])
 
-    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+    // const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+    const COLORS = ["#FBAF00", "#FFD639", "#FFA3AF", "#8090B7", "#007CBE", "#009689", "#00AF54", "#3F9C6E", "#7E8987", "#4B4A67","FFBD74","#809D9C"]
 
     const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -87,7 +88,7 @@ const MonthPieChart = ({fetcheddata,yeardata,year}) => {
             const x = cx + radius * Math.cos(-midAngle * RADIAN);
             const y = cy + radius * Math.sin(-midAngle * RADIAN);
   
-            return ( 
+            if (countmonth[index].total>100)return ( 
               <text
                 x={x}
                 y={y}
