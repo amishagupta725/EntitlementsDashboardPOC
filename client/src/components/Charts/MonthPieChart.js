@@ -4,7 +4,7 @@ import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer,Cell } from 'rechar
 const MonthPieChart = ({fetcheddata,yeardata,year}) => {
     const [yearcount, setYearCount] = useState([]);
     const [countmonth, setMonthCount] = useState([]); 
-
+    //Getting the data in required format for Re-charts as per the docs
     useEffect(()=>{
     const yearcounts = [];
     if(yeardata.length) yeardata.forEach((d)=>{
@@ -38,10 +38,9 @@ const MonthPieChart = ({fetcheddata,yeardata,year}) => {
         console.log(monthcount);
     },[fetcheddata])
 
-    // const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-    // const COLORS = ["#FBAF00", "#FFD639", "#FFA3AF", "#8090B7", "#007CBE", "#009689", "#00AF54", "#3F9C6E", "#7E8987", "#4B4A67","#FFBD74","#809D9C"]
     const COLORS = ["#FBAF00", "#FFD400","#FFDC2C","#FE5D26","#FC6143","#FC6F54", "#00A284","#00B291", "#00C49F","#1575A9","#0E7BC5", "#0088FE"]
 
+    // Building custom tooltip
     const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (

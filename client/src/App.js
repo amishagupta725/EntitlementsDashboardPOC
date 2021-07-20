@@ -12,6 +12,7 @@ import { Dropdown, Option } from "./components/Dropdown";
 import './App.css';
 import axios from 'axios';
 
+//Functions to fetch the data from API using axios
 function App () {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -58,11 +59,14 @@ function App () {
     }
   }
 
+//Slicing the URL to get the year from drop-down
   const [year, setYear] = useState(); 
   useEffect(() => {
       setYear(window.location.href.slice(28,32));
   }, [])
 
+
+// Rendering the components and using Routers and Switch to get multiple components on different URLs
   return (
     <Router>
       <Switch>

@@ -6,12 +6,14 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 
 const Table = ({fetcheddata}) => {
+
     const [gridApi, setGridApi] = useState(null);
     const [gridColumnApi, setGridColumnApi] = useState(null);
     const [rowData, setRowData] = useState(null);
 
     const [year, setYear] = useState(); 
     const [month, setMonth] = useState(); 
+    // Using use-effect hook to get the data in required format for ag-grid table
     useEffect(() => {
         setYear(window.location.pathname.slice(7,11));
         setMonth(window.location.pathname.slice(12,14));

@@ -4,6 +4,7 @@ const app = express();
 app.use(cors());
 var client = require('./connection.js');
 
+// Fetching the data from index year-wise, month-wise, type-wise
 app.get('/api/fetchdata',(req,res)=>{
     client.search({  
         index: 'entitlementfactsindex',
@@ -52,6 +53,7 @@ app.get('/api/fetchdata',(req,res)=>{
       });
 })
 
+// Fetching the data year-wise type-wise and the total count
 app.get('/api/fetchdataperyear',(req,res)=>{
   client.search({  
       index: 'entitlementfactsindex',
@@ -91,6 +93,7 @@ app.get('/api/fetchdataperyear',(req,res)=>{
     });
 })
 
+// Fetching the data year-wise, month-wise, day-wise, type-wise and total count
 app.get('/api/fetchdataperyearpermonth',(req,res)=>{
   client.search({  
       index: 'entitlementfactsindex',

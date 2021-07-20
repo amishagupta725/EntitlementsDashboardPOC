@@ -6,6 +6,7 @@ import {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContaine
 const Bargraph = ({fetcheddata,year}) => {
     const history = useHistory();
     const [data, setData] = useState([]); 
+    //Getting the data in required format for Re-charts as per the docs
     useEffect(()=>{
         const arraydata = [];
         if(fetcheddata.length) fetcheddata.forEach((d)=>{
@@ -22,7 +23,7 @@ const Bargraph = ({fetcheddata,year}) => {
         setData(arraydata);
     },[fetcheddata])
     console.log(data);
-
+ 
     return (
         <ResponsiveContainer width={600} height={500}>
         <BarChart
@@ -43,6 +44,7 @@ const Bargraph = ({fetcheddata,year}) => {
         <Legend layout="vertical" wrapperStyle={{top: 80, left: 530}}/>
         <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
         <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
+        {/* Using history.push to push the year-month to URL to further create tables */}
         <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return history.push(`/table/${data.name}`)}}/>
         <Bar dataKey="VIS" stackId="d" fill="#FF8042" />
       </BarChart>
