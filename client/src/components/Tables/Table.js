@@ -27,8 +27,13 @@ const Table = ({fetcheddata}) => {
         bucket.group_by_day.buckets.forEach((day)=>{
         const temp = day.group_by_Type.buckets;
             const data = {};
+            data['Casper']=0;
+            data['VIS']=0;
+            data['Cirrus']=0;
+            data['Gemini']=0;
             temp.forEach((type)=>{
-            data[type.key] = type.total_count.value;
+            
+            data[type.key] += type.total_count.value
         })
         arrdata.push({"Day":day.key_as_string.slice(0,10),"Casper": data['Casper'], "Cirrus": data['Cirrus'], "VIS": data['VIS'], "Gemini": data['Gemini']})
     })
