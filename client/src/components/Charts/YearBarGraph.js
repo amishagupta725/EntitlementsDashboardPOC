@@ -46,7 +46,7 @@ const YearBarGraph = ({fetcheddata,year}) => {
         <Legend layout="vertical" wrapperStyle={{top: 80, left: 460}}/>
         <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
         <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
-        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return history.push(`/yeartable/${data.name}`)}} />
+        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return window.open(`/yeartable/${data.name}`)}} />
         <Bar dataKey="VIS" stackId="d" fill="#FF8042" />
       </BarChart>
       </ResponsiveContainer>

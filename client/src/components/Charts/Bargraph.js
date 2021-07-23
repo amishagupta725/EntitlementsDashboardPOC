@@ -45,7 +45,7 @@ const Bargraph = ({fetcheddata,year}) => {
         <Bar dataKey="Casper" stackId="d" fill="#0088FE" />
         <Bar dataKey="Cirrus" stackId="d" fill="#00C49F" />
         {/* Using history.push to push the year-month to URL to further create tables */}
-        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return history.push(`/table/${data.name}`)}}/>
+        <Bar dataKey="Gemini" stackId="d" fill="#FFBB28" onClick={(data,index)=>{return window.open(`/table/${data.name}`)}}/>
         <Bar dataKey="VIS" stackId="d" fill="#FF8042" />
       </BarChart>
       </ResponsiveContainer>

@@ -80,7 +80,7 @@ function App () {
         <YearPieChart fetcheddata={data} year={year?year:2021} />
         </div>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
-        <h5 style={{textAlign:"Center",marginTop:"20px"}}>Yearly Count by Type</h5>
+        <h5 style={{textAlign:"Center",marginTop:"20px"}}>Yearly Count by Type [{year?year:2021}]</h5>
         <YearBarGraph fetcheddata={bargraphdata} year={year?year:2021}/>
         </div>
         </container>
@@ -111,12 +111,12 @@ function App () {
       </Dropdown>
         <container style={{display:"flex",flexWrap:"wrap",marginTop:"10px",justifyContent:"space-evenly"}}>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
-        <h5 style={{textAlign:"Center", marginTop:"20px"}}>Monthly Count</h5>
+        <h5 style={{textAlign:"Center", marginTop:"20px"}}>Monthly Count [{year?year:2021}]</h5>
         {/* < NestedPieChart fetcheddata={data} /> */}
         <MonthPieChart fetcheddata={bargraphdata} yeardata={data} year={year?year:2021}/>
         </div>
         <div style={{boxShadow: "5px 10px 18px #888888",height:"400px", width:"600px",marginLeft:"20px"}}>
-        <h5 style={{textAlign:"Center",marginTop:"20px"}}>Monthly Count by Type</h5>
+        <h5 style={{textAlign:"Center",marginTop:"20px"}}>Monthly Count by Type [{year?year:2021}]</h5>
         < Bargraph fetcheddata={bargraphdata} year={year?year:2021}/>
         </div>
         </container>
